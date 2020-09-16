@@ -30,6 +30,7 @@ import hamburgerImg from "../../images/hamburger.svg";
 import logoImg from "../../images/logo.svg";
 import searchImg from "../../images/search.svg";
 import userImg from "../../images/user.svg";
+import { xLargeScreen } from "@temp/@next/globalStyles/constants";
 
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();
@@ -56,10 +57,7 @@ const MainMenu: React.FC = () => {
 
                 return (
                   <ul>
-                    <Media
-                      query={{ maxWidth: mediumScreen }}
-                      render={() => (
-                        <li
+                    <li
                           className="main-menu__hamburger"
                           onClick={() =>
                             overlayContext.show(
@@ -78,22 +76,6 @@ const MainMenu: React.FC = () => {
                             className={"main-menu__hamburger--hover"}
                           />
                         </li>
-                      )}
-                    />
-                    <Media
-                      query={{ minWidth: mediumScreen }}
-                      render={() =>
-                        items.map(item => (
-                          <li
-                            data-cy="main-menu__item"
-                            className="main-menu__item"
-                            key={item.id}
-                          >
-                            <NavDropdown overlay={overlayContext} {...item} />
-                          </li>
-                        ))
-                      }
-                    />
                     <Online>
                 <Media
                   query={{ maxWidth: smallScreen }}
