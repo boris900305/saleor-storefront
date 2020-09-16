@@ -64,6 +64,15 @@ const MainMenu: React.FC = () => {
 
           <div className="main-menu__right">
             <ul>
+              <li
+                className="main-menu__search"
+                onClick={() => overlayContext.show(OverlayType.search, OverlayTheme.right)}
+              >
+                <Media
+                  query={{ minWidth: mediumScreen }}
+                  render={() => <span>Buscar</span>} />
+                <ReactSVG path={searchImg} />
+              </li>
               <Online>
               {user ? (
                         <MenuDropdown
@@ -124,15 +133,7 @@ const MainMenu: React.FC = () => {
                     render={() => <span>Offline</span>} />
                 </li>
               </Offline>
-              <li
-                className="main-menu__search"
-                onClick={() => overlayContext.show(OverlayType.search, OverlayTheme.right)}
-              >
-                <Media
-                  query={{ minWidth: mediumScreen }}
-                  render={() => <span>Search</span>} />
-                <ReactSVG path={searchImg} />
-              </li>
+              
             </ul>
           </div>
         </nav>
