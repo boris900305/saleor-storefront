@@ -51,19 +51,12 @@ const MainMenu: React.FC = () => {
       {overlayContext => (
         <nav className="main-menu" id="header">
           <div className="main-menu__left">
-          <Link to={appPaths.baseUrl}>
-              <ReactSVG path={logoImg} />
-            </Link>
-
-            
-          </div>
+          <img src={require('../../images/logorey.png')}/>
+        </div>
 
           <div className="main-menu__center">
-            
-          </div>
 
-          <div className="main-menu__right">
-            <ul>
+          <ul>
               <li
                 className="main-menu__search"
                 onClick={() => overlayContext.show(OverlayType.search, OverlayTheme.right)}
@@ -72,6 +65,17 @@ const MainMenu: React.FC = () => {
                   query={{ minWidth: mediumScreen }}
                   render={() => <span>Buscar</span>} />
                 <ReactSVG path={searchImg} />
+              </li>
+
+              </ul>
+            
+          </div>
+
+          <div className="main-menu__right">
+            <ul>
+              <li
+                className="main-menu__phone" >
+ 1 768 431 2103
               </li>
               <Online>
               {user ? (
@@ -182,15 +186,16 @@ const MainMenu: React.FC = () => {
           <Media
                   query={{ minWidth: mediumScreen }}
                   render={() => 
-                    <div>
-                      <span>Autos  </span>
-                      <span>Hoteles  </span>
-                      <span>Vuelos  </span>
-                      <span>Envíos marítimos  </span>
-                      <span>Paquetería Express  </span>
-                      <span>Trámites  </span>
-                      <span>Recargas  </span>
-                      <span>Tienda  </span>
+                    <div className="main-menu__links">
+
+                      <a href="#">Autos</a>
+                      <a href="#">Hoteles</a>
+                      <a href="#">Vuelos</a>
+                      <a href="#">Envíos marítimos</a>
+                      <a href="#">Paquetería Express</a>
+                      <a href="#">Trámites</a>
+                      <a href="#">Recargas</a>
+                      <a href="#">Tienda</a>
                     </div>                
             } />       
           </div>
