@@ -17,6 +17,15 @@ import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
 import noPhotoImg from "../../images/no-photo.svg";
 
+import Slider from "react-slick";
+
+import Media from "react-media";
+
+import {
+  mediumScreen,
+  smallScreen,
+} from "../../globalStyles/scss/variables.scss";
+
 const Page: React.FC<{
   loading: boolean;
   categories: ProductsList_categories;
@@ -27,12 +36,21 @@ const Page: React.FC<{
     return categories && categories.edges && categories.edges.length > 0;
   };
 
+  const sliderSettings = {
+    autoplay: true,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   return (
     <>
       <script className="structured-data-list" type="application/ld+json">
         {structuredData(shop)}
       </script>
-      <div
+      {/* <div
         className="home-page__hero"
         style={
           backgroundImage
@@ -68,7 +86,50 @@ const Page: React.FC<{
             )
           )}
         </div>
-      </div>
+      </div> */}
+      <Slider {...sliderSettings}>
+          <div>
+          <Media
+                  query={{ maxWidth: smallScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-comprashome-mov.png')}/>} />
+          <Media
+                  query={{ minWidth: mediumScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-comprashome.png')}/>} />           
+          </div>
+          <div>
+          <Media
+                  query={{ maxWidth: smallScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-expresshome-mov.jpg')}/>} />
+          <Media
+                  query={{ minWidth: mediumScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-express-home.jpg')}/>} />            
+          </div>
+          <div>
+          <Media
+                  query={{ maxWidth: smallScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-pasajeshome-mov.png')}/>} />
+          <Media
+                  query={{ minWidth: mediumScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-pasajeshome.png')}/>} />
+          </div>
+          <div>
+          <Media
+                  query={{ maxWidth: smallScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-recargas-usa-mov.jpg')}/>} />
+          <Media
+                  query={{ minWidth: mediumScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-recargas-usa.jpg')}/>} />
+            
+          </div>
+          <div>
+          <Media
+                  query={{ maxWidth: smallScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-rentahome-mov.jpg')}/>} />
+          <Media
+                  query={{ minWidth: mediumScreen }}
+                  render={() => <img className="carousel-image" src={require('../../images/slider-rentahome.jpg')}/>} />
+          </div>
+        </Slider>
       <ProductsFeatured />
       {categoriesExist() && (
         <div className="home-page__categories">

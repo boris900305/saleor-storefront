@@ -1,4 +1,6 @@
 @import "../../../globalStyles/scss/variables.scss";
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
 
 .home-page {
   &__hero {
@@ -124,4 +126,9 @@
       }
     }
   }
+}
+
+.carousel-image{
+  max-width: 100%;
+  height: auto;
 }
