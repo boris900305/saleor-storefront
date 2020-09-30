@@ -45,6 +45,16 @@ export const paymentGateways: IPaymentGateway[] = [
         value: "false",
       },
     ],
+    id: "mirumee.payments.authorize",
+    name: "Authorize",
+  },
+  {
+    config: [
+      {
+        field: "store_customer_card",
+        value: "false",
+      },
+    ],
     id: "mirumee.payments.dummy",
     name: "Dummy",
   },
