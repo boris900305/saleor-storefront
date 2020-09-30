@@ -4,6 +4,7 @@ import { ErrorMessage, Radio } from "@components/atoms";
 import { PROVIDERS } from "@temp/core/config";
 
 import {
+  AuthorizePaymentGateway,
   BraintreePaymentGateway,
   DummyPaymentGateway,
   StripePaymentGateway,
@@ -31,6 +32,36 @@ const PaymentGatewaysList: React.FC<IProps> = ({
         const checked = selectedPaymentGateway === id;
 
         switch (name) {
+          case PROVIDERS.AUTHORIZE.label:
+            return (
+              <div key={index}>
+                <S.Tile checked={checked}>
+                  <Radio
+                    data-cy="checkoutPaymentGatewayDummyInput"
+                    name="payment-method"
+                    value="authorize"
+                    checked={checked}
+                    onChange={() =>
+                      selectPaymentGateway && selectPaymentGateway(id)
+                    }
+                    customLabel={true}
+                  >
+                    <span data-cy="checkoutPaymentGatewayDummyName">
+                      {name}
+                    </span>
+                  </Radio>
+                </S.Tile>
+                {checked && (
+                  <AuthorizePaymentGateway
+                    formRef={formRef}
+                    formId={formId}
+                    processPayment={token => processPayment(id, token)}
+                    initialStatus={selectedPaymentGatewayToken}
+                  />
+                )}
+              </div>
+            );
+
           case PROVIDERS.BRAINTREE.label:
             return (
               <div key={index}>
