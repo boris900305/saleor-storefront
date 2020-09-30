@@ -51,7 +51,7 @@ const MainMenu: React.FC = () => {
       {overlayContext => (
         <nav className="main-menu" id="header">
           <div className="main-menu__left">
-          <img src={require('../../images/logorey.png')}/>
+          <img className="logo-pc" src={require('../../images/logorey.svg')}/>
         </div>
 
           <div className="main-menu__center">
