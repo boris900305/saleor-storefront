@@ -30,7 +30,7 @@ import hamburgerImg from "../../images/hamburger.svg";
 import logoImg from "../../images/logo.svg";
 import searchImg from "../../images/search.svg";
 import userImg from "../../images/user.svg";
-import { xLargeScreen } from "@temp/@next/globalStyles/constants";
+import { TextField } from "@temp/@next/components/molecules/TextField/styles";
 
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();
@@ -49,78 +49,179 @@ const MainMenu: React.FC = () => {
   return (
     <><OverlayContext.Consumer>
       {overlayContext => (
-        <nav className="main-menu" id="header">
+        <><nav className="main-menu" id="header">
           <div className="main-menu__left">
-          <img className="logo-pc" src={require('../../images/logorey.svg')}/>
-        </div>
+            <TypedMainMenuQuery renderOnError displayLoader={false}>
+              {({ data }) => {
+                const items = maybe(() => data.shop.navigation.main.items, []);
+
+                return (
+                  <ul>
+                    <Media
+                      query={{ maxWidth: mediumScreen }}
+                      render={() => (
+                        <li
+                          className="main-menu__hamburger"
+                          onClick={() =>
+                            overlayContext.show(
+                              OverlayType.sideNav,
+                              OverlayTheme.left,
+                              { data: items }
+                            )
+                          }
+                        >
+                          <ReactSVG
+                            path={hamburgerImg}
+                            className={"main-menu__hamburger--icon"}
+                          />
+                          <ReactSVG
+                            path={hamburgerHoverImg}
+                            className={"main-menu__hamburger--hover"}
+                          />
+                        </li>
+                      )}
+                    />                    
+                    <Media
+                      query={{ minWidth: smallScreen }}
+                      render={() => (
+                        <Link to={appPaths.baseUrl}>
+                              <ReactSVG path={logoImg} />
+                            </Link>    
+                      )}
+                    />
+                    
+                <Online>
+                <Media
+                  query={{ maxWidth: smallScreen }}
+                  render={() => (
+                    <>
+                      {user ? (
+                        <MenuDropdown
+                          suffixClass={'__rightdown'}
+                          head={
+                            <li className="main-menu__icon main-menu__user--active">
+                              <ReactSVG path={userImg} />
+                            </li>
+                          }
+                          content={
+                            <ul className="main-menu__dropdown">
+                              <li data-testid="my_account__link">
+                                <Link to={appPaths.accountUrl}>My Account</Link>
+                              </li>
+                              <li data-testid="order_history__link">
+                                <Link to={appPaths.orderHistoryUrl}>
+                                  Order history
+                                </Link>
+                              </li>
+                              <li data-testid="address_book__link">
+                                <Link to={appPaths.addressBookUrl}>
+                                  Address book
+                                </Link>
+                              </li>
+                              <li
+                                onClick={handleSignOut}
+                                data-testid="logout-link"
+                              >
+                                Log Out
+                              </li>
+                            </ul>
+                          }
+                        />
+                      ) : (
+                        <li
+                          data-testid="login-btn"
+                          className="main-menu__icon"
+                          onClick={() =>
+                            overlayContext.show(
+                              OverlayType.login,
+                              OverlayTheme.left
+                            )
+                          }
+                        >
+                          <ReactSVG path={userImg} />
+                        </li>
+                      )}
+                    </>
+                  )}
+                />
+              </Online>
+                  </ul>
+                );
+              }}
+            </TypedMainMenuQuery>
+          </div>
 
           <div className="main-menu__center">
-
-          <ul>
-              <li
-                className="main-menu__search"
-                onClick={() => overlayContext.show(OverlayType.search, OverlayTheme.right)}
-              >
-                <Media
-                  query={{ minWidth: mediumScreen }}
-                  render={() => <span>Buscar</span>} />
-                <ReactSVG path={searchImg} />
-              </li>
-
-              </ul>
-            
+          <Media
+            query={{ maxWidth: smallScreen }}
+            render={() => (
+              <Link to={appPaths.baseUrl}>
+                    <ReactSVG path={logoImg} />
+                  </Link>    
+            )}
+          />                                 
           </div>
 
           <div className="main-menu__right">
             <ul>
-              <li
-                className="main-menu__phone" >
- 1 768 431 2103
-              </li>
               <Online>
-              {user ? (
+                <Media
+                  query={{ minWidth: smallScreen }}
+                  render={() => (
+                    <>
+                      {user ? (
                         <MenuDropdown
-                          head={<li className="main-menu__icon main-menu__user--active">
-                            <ReactSVG path={userImg} />
-                          </li>}
-                          content={<ul className="main-menu__dropdown">
-                            <li data-testid="my_account__link">
-                              <Link to={appPaths.accountUrl}>My Account</Link>
+                          head={
+                            <li className="main-menu__icon main-menu__user--active">
+                              <ReactSVG path={userImg} />
                             </li>
-                            <li data-testid="order_history__link">
-                              <Link to={appPaths.orderHistoryUrl}>
-                                Order history
-                              </Link>
-                            </li>
-                            <li data-testid="address_book__link">
-                              <Link to={appPaths.addressBookUrl}>
-                                Address book
-                              </Link>
-                            </li>
-                            <li
-                              onClick={handleSignOut}
-                              data-testid="logout-link"
-                            >
-                                                Log Out
-                            </li>
-                          </ul>} />
+                          }
+                          content={
+                            <ul className="main-menu__dropdown">
+                              <li data-testid="my_account__link">
+                                <Link to={appPaths.accountUrl}>My Account</Link>
+                              </li>
+                              <li data-testid="order_history__link">
+                                <Link to={appPaths.orderHistoryUrl}>
+                                  Order history
+                                </Link>
+                              </li>
+                              <li data-testid="address_book__link">
+                                <Link to={appPaths.addressBookUrl}>
+                                  Address book
+                                </Link>
+                              </li>
+                              <li
+                                onClick={handleSignOut}
+                                data-testid="logout-link"
+                              >
+                                Log Out
+                              </li>
+                            </ul>
+                          }
+                        />
                       ) : (
-                          <li
-                            data-testid="login-btn"
-                            className="main-menu__icon"
-                            onClick={() => overlayContext.show(
+                        <li
+                          data-testid="login-btn"
+                          className="main-menu__icon"
+                          onClick={() =>
+                            overlayContext.show(
                               OverlayType.login,
                               OverlayTheme.right
-                            )}
-                          >
-                            <ReactSVG path={userImg} />
-                          </li>
-                        )}
+                            )
+                          }
+                        >
+                          <ReactSVG path={userImg} />
+                        </li>
+                      )}
+                    </>
+                  )}
+                />
                 <li
                   className="main-menu__icon main-menu__cart"
                   onClick={() => {
                     overlayContext.show(OverlayType.cart, OverlayTheme.right);
-                  } }
+                  }}
                 >
                   <ReactSVG path={cartImg} />
                   {cartItemsQuantity > 0 ? (
@@ -134,17 +235,48 @@ const MainMenu: React.FC = () => {
                 <li className="main-menu__offline">
                   <Media
                     query={{ minWidth: mediumScreen }}
-                    render={() => <span>Offline</span>} />
+                    render={() => <span>Offline</span>}
+                  />
                 </li>
               </Offline>
-              
+              <Media
+                query={{ minWidth: mediumScreen }}
+                render={() => 
+                  <li
+                  className="main-menu__search"
+                  onClick={() =>
+                    overlayContext.show(OverlayType.search, OverlayTheme.right)
+                  }
+                >
+                  <Media
+                    query={{ minWidth: mediumScreen }}
+                    render={() => <span>Buscar</span>}
+                  />
+                  <ReactSVG path={searchImg} />
+                </li>
+                }      
+              />             
             </ul>
-          </div>
+
+          </div>             
         </nav>
-      )}
-    </OverlayContext.Consumer>
-      
-    <OverlayContext.Consumer>
+
+        <div className="search-bar"
+        onClick={() =>
+          overlayContext.show(OverlayType.search, OverlayTheme.right)
+        }>
+          <ReactSVG className="search-bar__search-icon" path={searchImg} />
+          <input className="search-bar__search-input" placeholder="Buscar" type="text" ></input> 
+        </div> 
+        </>
+      )}    
+    </OverlayContext.Consumer>          
+
+    {/* Subheader */}
+    <Media
+        query={{ minWidth: mediumScreen }}
+        render={() => 
+      <OverlayContext.Consumer>
       {overlayContext => (
         <nav className="main-menu" id="sub_header">
           <div className="main-menu__left">
@@ -201,9 +333,9 @@ const MainMenu: React.FC = () => {
           </div>
         </nav>
       )}
-    </OverlayContext.Consumer>
-
-      </>
+    </OverlayContext.Consumer>                 
+    } />           
+    </>
   );
 };
 
