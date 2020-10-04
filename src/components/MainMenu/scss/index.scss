@@ -21,16 +21,6 @@
       align-items: center;
       height: 100%;
     }
-
-    svg {
-      width: 4rem;
-      margin-top: 10px;
-      margin-left: 10px;
-
-      @media (min-width: $small-screen) {
-        width: 7rem;
-      }
-    }
   }
 
   &__right {

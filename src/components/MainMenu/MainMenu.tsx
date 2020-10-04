@@ -260,14 +260,17 @@ const MainMenu: React.FC = () => {
 
           </div>             
         </nav>
-
-        <div className="search-bar"
-        onClick={() =>
-          overlayContext.show(OverlayType.search, OverlayTheme.right)
-        }>
-          <ReactSVG className="search-bar__search-icon" path={searchImg} />
-          <input className="search-bar__search-input" placeholder="Buscar" type="text" ></input> 
-        </div> 
+        <Media
+          query={{ maxWidth: mediumScreen }}
+          render={() => 
+          <div className="search-bar"
+            onClick={() =>
+              overlayContext.show(OverlayType.search, OverlayTheme.right)
+            }>
+              <ReactSVG className="search-bar__search-icon" path={searchImg} />
+              <input className="search-bar__search-input" placeholder="Buscar" type="text" ></input> 
+            </div>           
+          } />                  
         </>
       )}    
     </OverlayContext.Consumer>          
