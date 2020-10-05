@@ -87,7 +87,8 @@ const Page: React.FC<{
           )}
         </div>
       </div> */}
-      {/* <Slider {...sliderSettings}>
+      <div className="slider">
+      <Slider {...sliderSettings}>
           <div>
           <Media
                   query={{ maxWidth: smallScreen }}
@@ -129,7 +130,8 @@ const Page: React.FC<{
                   query={{ minWidth: mediumScreen }}
                   render={() => <img className="carousel-image" src={require('../../images/slider-rentahome.jpg')}/>} />
           </div>
-        </Slider> */}
+        </Slider>
+      </div>
       <ProductsFeatured />
       {categoriesExist() && (
         <div className="home-page__categories">

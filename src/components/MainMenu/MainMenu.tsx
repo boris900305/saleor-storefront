@@ -21,16 +21,14 @@ import {
 } from "..";
 import * as appPaths from "../../app/routes";
 import { maybe } from "../../core/utils";
-import NavDropdown from "./NavDropdown";
 import { TypedMainMenuQuery } from "./queries";
 
 import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
-import logoImg from "../../images/logo.svg";
+import logoImg from "../../images/logorey.svg";
 import searchImg from "../../images/search.svg";
 import userImg from "../../images/user.svg";
-import { TextField } from "@temp/@next/components/molecules/TextField/styles";
 
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();
@@ -84,9 +82,11 @@ const MainMenu: React.FC = () => {
                     <Media
                       query={{ minWidth: smallScreen }}
                       render={() => (
-                        <Link to={appPaths.baseUrl}>
-                              <ReactSVG path={logoImg} />
-                            </Link>    
+                        <div className="main-menu__left__logo">
+                          <Link to={appPaths.baseUrl}>
+                            <ReactSVG path={logoImg} />
+                          </Link> 
+                        </div>   
                       )}
                     />
                     
@@ -281,16 +281,16 @@ const MainMenu: React.FC = () => {
         render={() => 
       <OverlayContext.Consumer>
       {overlayContext => (
-        <nav className="main-menu" id="sub_header">
-          <div className="main-menu__left">
+        <nav className="sub-menu" id="sub_header">
+          <div className="sub-menu__left">
             <TypedMainMenuQuery renderOnError displayLoader={false}>
               {({ data }) => {
                 const items = maybe(() => data.shop.navigation.main.items, []);
 
                 return (
-                  <ul>
+                  <><ul>
                     <li
-                      className="main-menu__hamburger"
+                      className="sub-menu__hamburger"
                       onClick={() => overlayContext.show(
                         OverlayType.sideNav,
                         OverlayTheme.left,
@@ -299,39 +299,39 @@ const MainMenu: React.FC = () => {
                     >
                       <ReactSVG
                         path={hamburgerImg}
-                        className={"main-menu__hamburger--icon"} />
+                        className={"sub-menu__hamburger--icon"} />
                       <ReactSVG
                         path={hamburgerHoverImg}
-                        className={"main-menu__hamburger--hover"} />
-                      <span>Departamentos</span>
+                        className={"sub-menu__hamburger--hover"} />
+                      
                     </li>
-                    
-                    
+                    <li>
+                      <span>Departamentos</span>
+                    </li>                                     
                   </ul>
+                  
+                  </>
                 );
               } }
             </TypedMainMenuQuery>
           </div>
 
-          <div className="main-menu__center">
-            
-          </div>
+          <div className="sub-menu__center"></div>
 
-          <div className="main-menu__right">
+          <div className="sub-menu__right">
           <Media
                   query={{ minWidth: mediumScreen }}
                   render={() => 
-                    <div className="main-menu__links">
-
-                      <a href="#">Autos</a>
-                      <a href="#">Hoteles</a>
-                      <a href="#">Vuelos</a>
-                      <a href="#">Envíos marítimos</a>
-                      <a href="#">Paquetería Express</a>
-                      <a href="#">Trámites</a>
-                      <a href="#">Recargas</a>
-                      <a href="#">Tienda</a>
-                    </div>                
+                    <ul>
+                      <li className="normal-text"><a href="#">Autos</a></li>
+                      <li className="normal-text"><a href="#">Hoteles</a></li>
+                      <li className="normal-text"><a href="#">Vuelos</a></li>
+                      <li className="large-text"><a href="#">Envíos marítimos</a></li>
+                      <li className="large-text"><a href="#">Paquetería Express</a></li>
+                      <li className="normal-text"><a href="#">Trámites</a></li>
+                      <li className="normal-text"><a href="#">Recargas</a></li>
+                      <li className="normal-text"><a href="#">Tienda</a></li>
+                    </ul>              
             } />       
           </div>
         </nav>
