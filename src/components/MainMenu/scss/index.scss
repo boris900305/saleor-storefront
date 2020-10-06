@@ -10,11 +10,8 @@
   position: relative;
 
   &__left {
-    flex-basis: calc(50% - 2rem);
-
-    @media (min-width: $small-screen) {
-      flex-basis: calc(50% - 4rem);
-    }
+    flex: 1;
+    
 
     ul {
       display: flex;
@@ -23,7 +20,11 @@
     }
 
     svg {
-      width: 10rem;
+      width: 2rem;
+
+      @media (min-width: $small-screen) {
+        width: 10rem;
+      }
     }
 
     &__logo
@@ -34,11 +35,8 @@
   }
 
   &__right {
-    flex-basis: calc(50% - 2rem);
-
-    @media (min-width: $small-screen) {
-      flex-basis: calc(50% - 4rem);
-    }
+    flex: 1;
+    
 
     ul {
       display: flex;
@@ -48,7 +46,14 @@
   }
 
   &__center {
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    svg {
+      width: 8rem;
+      margin-top: 10px;
+    }
   }
 
   &__item {
