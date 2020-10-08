@@ -29,6 +29,8 @@ import hamburgerImg from "../../images/hamburger.svg";
 import logoImg from "../../images/logorey.svg";
 import searchImg from "../../images/search.svg";
 import userImg from "../../images/user.svg";
+import phoneImg from "../../images/phone.svg";
+
 
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();
@@ -165,6 +167,12 @@ const MainMenu: React.FC = () => {
           <div className="main-menu__right">
             <ul>
               <Online>
+              <Media
+                  query={{ minWidth: smallScreen }}
+                  render={() => (
+                    <div className="phone">7864312103</div>    
+                  )}
+                /> 
                 <Media
                   query={{ minWidth: smallScreen }}
                   render={() => (
