@@ -1,16 +1,48 @@
 @import "../../../globalStyles/scss/variables.scss";
 
-.main-menu {
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@100;300;700;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+
+
+button.slick-arrow.slick-next {
+  right: 25px;
+}
+
+button.slick-arrow.slick-prev {
+  left: 25px;
+  z-index: 1;
+}
+
+.phone {
+  font-size: 2em;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  flex: auto;
+  font-family: Varela Round;
+}
+
+.top-banner {
+    height: 3.7rem;
+    background: url(https://uidesign.gbtcdn.com/GB/image/4424/es_1920x60.jpg);
+    background-repeat: no-repeat;
+}
+
+.main-menu__search svg path {
+  fill: $reyenvios;
+}
+
+
+.main-menu {
   align-items: stretch;
-  background-color: $white;
+  background-color: #fbfbfb;
   display: flex;
   flex-direction: row;
-  height: 3.55rem;
-  position: relative;
+  height: 5rem;
 
   &__left {
-    flex: 1;
+    /*flex: 1;*/
+    /*background: red;*/
+    padding-right: 25px;
     
 
     ul {
@@ -42,6 +74,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      height: 100%;
     }
   }
 
@@ -68,7 +101,7 @@
       transition: 0.3s;
 
       &:hover {
-        color: $turquoise;
+        color: grey;
       }
     }
   }
@@ -105,8 +138,16 @@
   }
 
   &__icon {
-    padding: 0 $spacer;
+    padding: 0 1rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: nunito;
+
+    &:hover {
+      color: $reyenvios;
+
+    }
 
     svg * {
       transition: 0.3s;
@@ -114,13 +155,13 @@
 
     &:hover {
       svg * {
-        fill: $turquoise;
+        fill: $reyenvios;
       }
     }
 
     svg {
       vertical-align: bottom;
-    }
+     }
 
     @media (max-width: $small-screen) {
       top: 20px;
@@ -130,6 +171,9 @@
   &__cart {
     position: relative;
 
+    &:hover {
+      color: $reyenvios;
+    }
     &__quantity {
       position: absolute;
       top: -0.3rem;
@@ -149,10 +193,15 @@
 
   &__user {
     &--active * {
-      fill: $turquoise;
+      fill: $reyenvios;
       fill-rule: inherit;
     }
+    &--active:hover {
+      color: $reyenvios;
+    }
   }
+
+
 
   &__dropdown {
     text-transform: uppercase;
@@ -200,14 +249,22 @@
     &:hover {
       color: $turquoise;
       svg * {
-        fill: $turquoise;
+      fill:black;
       }
     }
 
     span {
       text-transform: uppercase;
-      font-weight: $bold-font-weight;
-      margin-right: $spacer;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      font-family: nunito;
+      font-size: 1.1em;
+      color: #f31f00;
+    }
+
+    span:hover {
+      color:black;
+
     }
 
     div {
@@ -345,7 +402,6 @@
   &__left {
     background-color: #F31F00;
     color: white;
-    font-weight: bold;
     flex: 1.5;
 
     ul {
@@ -364,22 +420,25 @@
   &__right {
     background-color: #232F3E;
     color: white;
-    flex: 5;
+    flex: 1 1 80%;
 
     ul {
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      flex-wrap: nowrap;
+      justify-content: space-around;
       height: 100%;
+      align-items: center;
+      color: white;
+      font-family: nunito;
     }
-
+/*
     .large-text {
       flex: 2;
     }
 
     .normal-text {
       flex: 1;
-    }
+    }*/
   }
 
   span {

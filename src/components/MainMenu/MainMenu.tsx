@@ -23,14 +23,11 @@ import * as appPaths from "../../app/routes";
 import { maybe } from "../../core/utils";
 import { TypedMainMenuQuery } from "./queries";
 
-import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
 import logoImg from "../../images/logorey.svg";
 import searchImg from "../../images/search.svg";
 import userImg from "../../images/user.svg";
-import phoneImg from "../../images/phone.svg";
-
 
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();
@@ -49,7 +46,11 @@ const MainMenu: React.FC = () => {
   return (
     <><OverlayContext.Consumer>
       {overlayContext => (
-        <><nav className="main-menu" id="header">
+        <>
+        
+        <div className="top-banner"> </div>
+
+       <nav className="main-menu" id="header">
           <div className="main-menu__left">
             <TypedMainMenuQuery renderOnError displayLoader={false}>
               {({ data }) => {
@@ -170,7 +171,7 @@ const MainMenu: React.FC = () => {
               <Media
                   query={{ minWidth: smallScreen }}
                   render={() => (
-                    <div className="phone">7864312103</div>    
+                    <li className="phone">786 431 2103</li>    
                   )}
                 /> 
                 <Media
@@ -181,7 +182,12 @@ const MainMenu: React.FC = () => {
                         <MenuDropdown
                           head={
                             <li className="main-menu__icon main-menu__user--active">
+
                               <ReactSVG path={userImg} />
+                              <Media
+                        query={{ minWidth: mediumScreen }}
+                        render={() => <span>Mi cuenta</span>}
+                  />
                             </li>
                           }
                           content={
@@ -219,7 +225,12 @@ const MainMenu: React.FC = () => {
                             )
                           }
                         >
-                          <ReactSVG path={userImg} />
+
+<svg width="1.8em" height="1.9em" viewBox="0 0 16 15" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path></svg>
+                          <Media
+                        query={{ minWidth: mediumScreen }}
+                        render={() => <span className="icon-shorttext">Entrar</span>}
+                  />
                         </li>
                       )}
                     </>
@@ -231,7 +242,13 @@ const MainMenu: React.FC = () => {
                     overlayContext.show(OverlayType.cart, OverlayTheme.right);
                   }}
                 >
-                  <ReactSVG path={cartImg} />
+                  <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                  </svg>
+                  <Media
+                    query={{ minWidth: mediumScreen }}
+                    render={() => <span>Carrito</span>}
+                  />
                   {cartItemsQuantity > 0 ? (
                     <span className="main-menu__cart__quantity">
                       {cartItemsQuantity}
@@ -256,11 +273,15 @@ const MainMenu: React.FC = () => {
                     overlayContext.show(OverlayType.search, OverlayTheme.right)
                   }
                 >
+
+                  <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+</svg>
                   <Media
                     query={{ minWidth: mediumScreen }}
                     render={() => <span>Buscar</span>}
                   />
-                  <ReactSVG path={searchImg} />
                 </li>
                 }      
               />             
