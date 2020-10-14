@@ -1,32 +1,43 @@
 import { Formik } from "formik";
 import React from "react";
 
-import { Radio } from "@components/atoms";
+import { FormComponent, FormContainer } from "react-authorize-net";
+import { Box } from "rebass";
 
 import * as S from "./styles";
 import { IProps } from "./types";
 
-export const statusesAuth = [
-  { token: "charged", label: "Charged" },
-  { token: "fully-refunded", label: "Fully refunded" },
-  { token: "not-charged", label: "Not charged" },
-];
+let clientKey = "test";
+let apiLoginId = "test";
 
 /**
  * Authorize payment gateway.
  */
 const AuthorizePaymentGateway: React.FC<IProps> = ({
+  config,
   processPayment,
   formRef,
   formId,
-  initialStatus,
+  errors = [],
+  onError,
+  onSubmit,
 }: IProps) => {
+
+  const onErrorHandler = (response: any) => {
+    
+  };
+
+  const onSuccessHandler = (response: any) => {
+    
+  };
+
+
   return (
     <Formik
-      initialValues={{ status: initialStatus || statusesAuth[0].token }}
-      onSubmit={(values, { setSubmitting }) => {
-        processPayment(values.status);
-        setSubmitting(false);
+      initialValues={null}
+      onSubmit={async (values, { setSubmitting }) => {
+        // await onSubmit(stripe, elements);
+        // setSubmitting(false);
       }}
     >
       {({
@@ -37,28 +48,17 @@ const AuthorizePaymentGateway: React.FC<IProps> = ({
         isSubmitting,
         isValid,
       }) => (
-        <S.Form id={formId} ref={formRef} onSubmit={handleSubmit}>
-          {statusesAuth.map(({ token, label }) => {
-            return (
-              <S.Status key={token}>
-                <Radio
-                  data-cy={`checkoutPaymentGatewayDummyStatus${token}Input`}
-                  key={token}
-                  type="radio"
-                  name="status"
-                  value={token}
-                  checked={values.status === token}
-                  onChange={handleChange}
-                >
-                  <span
-                    data-cy={`checkoutPaymentGatewayDummyStatus${token}Label`}
-                  >
-                    {label}
-                  </span>
-                </Radio>
-              </S.Status>
-            );
-          })}
+        <S.Form id={formId} ref={formRef} onSubmit={handleSubmit}>   
+          <Box className="App" p={3}>
+            <FormContainer
+              environment="sandbox"
+              onError={onErrorHandler}
+              onSuccess={onSuccessHandler}
+              render={FormComponent}
+              clientKey={clientKey}
+              apiLoginId={apiLoginId}
+            />               
+          </Box>
         </S.Form>
       )}
     </Formik>

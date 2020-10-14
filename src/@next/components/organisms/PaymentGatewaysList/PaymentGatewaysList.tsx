@@ -53,10 +53,14 @@ const PaymentGatewaysList: React.FC<IProps> = ({
                 </S.Tile>
                 {checked && (
                   <AuthorizePaymentGateway
+                    config={config}
                     formRef={formRef}
                     formId={formId}
-                    processPayment={token => processPayment(id, token)}
-                    initialStatus={selectedPaymentGatewayToken}
+                    processPayment={(token, cardData) =>
+                      processPayment(id, token, cardData)
+                    }
+                    errors={errors}
+                    onError={onError}
                   />
                 )}
               </div>
