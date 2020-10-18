@@ -18,6 +18,10 @@ export interface IProps {
    */
   errors?: IFormError[];
   /**
+   * Postal code used by Braintree.
+   */
+  postalCode?: string;
+  /**
    * Method called after the form is submitted. Passed token attribute will be used to create payment.
    */
   processPayment: (token: string, cardData: ICardData) => void;
@@ -25,8 +29,4 @@ export interface IProps {
    * Method called when gateway error occured.
    */
   onError: (errors: IFormError[]) => void;
-  onSubmit?: (
-    // stripe: Stripe | null,
-    // elements: StripeElements | null
-  ) => Promise<void>;
 }
