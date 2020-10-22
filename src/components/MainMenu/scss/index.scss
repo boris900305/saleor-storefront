@@ -39,10 +39,20 @@ button.slick-arrow.slick-prev {
   flex-direction: row;
   height: 5rem;
 
+  @media (max-width: $small-screen) {
+    height: 3.5rem;
+   }
+  
+
   &__left {
     /*flex: 1;*/
     /*background: red;*/
     padding-right: 25px;
+
+    @media (max-width: $small-screen) {
+      padding-right: 0;
+      flex:1.05;
+   }
     
 
     ul {
@@ -87,6 +97,11 @@ button.slick-arrow.slick-prev {
       width: 8rem;
       margin-top: 10px;
     }
+
+    @media (max-width: $small-screen) {
+      width: 5rem;
+
+   }
   }
 
   &__item {
@@ -108,7 +123,6 @@ button.slick-arrow.slick-prev {
 
   &__hamburger {
     cursor: pointer;
-    padding: $spacer;
 
     &--hover {
       display: none;
@@ -169,7 +183,7 @@ button.slick-arrow.slick-prev {
   }
 
   &__cart {
-    position: relative;
+    /*position: relative;*/
 
     &:hover {
       color: $reyenvios;
@@ -363,9 +377,16 @@ button.slick-arrow.slick-prev {
   border-bottom: 1px solid $gray-light;
   margin-top: 15px;
 
+  @media (max-width: 360px) {
+    margin-top: 0;
+    padding: 5px 0;
+    background: #232F3E;
+   }
+  
+
   &__search-icon {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 22px;
     width: 14px;
   }
@@ -402,13 +423,13 @@ button.slick-arrow.slick-prev {
   &__left {
     background-color: #F31F00;
     color: white;
-    flex: 1.5;
+    flex-basis: 13em;
 
     ul {
       display: flex;
       align-items: center;
       height: 100%;
-      padding-right: 5px;;
+      padding-right: 1em;
     }
   }
 
@@ -456,6 +477,7 @@ button.slick-arrow.slick-prev {
     &:hover {
       .sub-menu__hamburger--icon {
         display: none;
+        margin-right: 10px;
       }
 
       .sub-menu__hamburger--hover {
@@ -465,6 +487,7 @@ button.slick-arrow.slick-prev {
 
     svg {
       vertical-align: bottom;
+      margin-right: 10px;
     }
 
     path {
@@ -477,9 +500,17 @@ button.slick-arrow.slick-prev {
   }
 
   &__hamburger {
-    align-items: center;
+    /*align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  }
+    justify-content: center;*/
+    display: flex;
+    height: 100%;
+    padding: 0.3rem 1rem;
+    align-items: center;;
+    width: 100%;
+  }  
 }
+
+
+

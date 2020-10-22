@@ -16,6 +16,7 @@ $blue-overlay: rgba($blue, 0.15);
 $autofillColor: rgb(250, 255, 189);
 $autofillColorSelected: rgb(232, 240, 254);
 $reyenvios:#f31f00;
+$reyenviosblue:#232f3e;
 
 // typography
 $base-font-family: "Inter", sans-serif;
@@ -38,13 +39,13 @@ $container-width: 1140px;
 // button
 $button-font-size: 1.125rem;
 $button-line-height: $base-line-height;
-$button-box-shadow: -5px 5px 14px 0px rgba(0, 0, 0, 0.2);
-$button-box-shadow-clicked: -3px 3px 14px 0px rgba(129, 67, 67, 0.2);
+$button-box-shadow: none;
+$button-box-shadow-clicked: none;
 $button-padding: 0.9rem 3.7rem;
 $button-padding-small-screen: 0.9rem 1rem;
 $button-transition: 0.3s;
-$button-transform: skew(45deg);
-$button-content-transform: skew(-45deg);
+$button-transform: none;
+$button-content-transform: none;
 $button-text-transform: uppercase;
 $button-font-weight: $bold-font-weight;
 
@@ -81,6 +82,7 @@ $product-item-price-margin: $spacer 0 0;
 // breakpoints
 $medium-screen: 992px;
 $small-screen: 540px;
+$short-screen: 320px;
 
 // carousel
 $carousel-control-padding: 0.2rem 0.5rem;
