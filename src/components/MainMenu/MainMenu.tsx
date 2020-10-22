@@ -332,11 +332,10 @@ const MainMenu: React.FC = () => {
                       <ReactSVG
                         path={hamburgerHoverImg}
                         className={"sub-menu__hamburger--hover"} />
+                        Departamentos
                       
                     </li>
-                    <li>
-                      <span>Departamentos</span>
-                    </li>                                     
+                                
                   </ul>
                   
                   </>
