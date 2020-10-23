@@ -377,7 +377,7 @@ button.slick-arrow.slick-prev {
   border-bottom: 1px solid $gray-light;
   margin-top: 15px;
 
-  @media (max-width: 360px) {
+  @media (max-width: $small-screen) {
     margin-top: 0;
     padding: 5px 0;
     background: #232F3E;
