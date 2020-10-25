@@ -56,11 +56,13 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
     } else {
       return (
         <>
+
+          <TaxedMoney taxedMoney={price} />
           <span className="product-list-item__undiscounted_price">
             <TaxedMoney taxedMoney={priceUndiscounted} />
+
+            
           </span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <TaxedMoney taxedMoney={price} />
         </>
       );
     }
