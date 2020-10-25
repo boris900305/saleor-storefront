@@ -4,7 +4,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { Button, Loader, ProductsFeatured } from "../../components";
+import { ProductsFeatured } from "../../components";
 import { generateCategoryUrl } from "../../core/utils";
 
 import {
@@ -46,9 +46,9 @@ const Page: React.FC<{
     autoplay: true,
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
     slidesToScroll: 1,
+    slidesToShow: 1,
+    speed: 500,
   };
 
   return (
