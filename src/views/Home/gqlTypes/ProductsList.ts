@@ -71,6 +71,37 @@ export interface ProductsList_categories {
   edges: ProductsList_categories_edges[];
 }
 
+export interface ProductsList_banners_edges_node_backgroundImage {
+  __typename: "Image";
+  /**
+   * The URL of the image.
+   */
+  url: string;
+}
+
+export interface ProductsList_banners_edges_node {
+  __typename: "Category";
+  name: string;
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  backgroundImage: ProductsList_banners_edges_node_backgroundImage | null;
+}
+
+export interface ProductsList_banners_edges {
+  __typename: "CategoryCountableEdge";
+  /**
+   * The item at the end of the edge.
+   */
+  node: ProductsList_banners_edges_node;
+}
+
+export interface ProductsList_banners {
+  __typename: "CategoryCountableConnection";
+  edges: ProductsList_banners_edges[];
+}
+
 export interface ProductsList {
   /**
    * Return information about the shop.
@@ -80,4 +111,8 @@ export interface ProductsList {
    * List of the shop's categories.
    */
   categories: ProductsList_categories | null;
+  /**
+   * List of the shop's categories.
+   */
+  banners: ProductsList_banners | null;
 }

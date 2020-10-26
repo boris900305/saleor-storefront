@@ -4,10 +4,11 @@ import classNames from "classnames";
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { Button, Loader, ProductsFeatured } from "../../components";
+import { ProductsFeatured } from "../../components";
 import { generateCategoryUrl } from "../../core/utils";
 
 import {
+  ProductsList_banners,
   ProductsList_categories,
   ProductsList_shop,
   ProductsList_shop_homepageCollection_backgroundImage,
@@ -31,18 +32,23 @@ const Page: React.FC<{
   categories: ProductsList_categories;
   backgroundImage: ProductsList_shop_homepageCollection_backgroundImage;
   shop: ProductsList_shop;
-}> = ({ loading, categories, backgroundImage, shop }) => {
+  banners: ProductsList_banners;
+}> = ({ loading, categories, banners, backgroundImage, shop }) => {
   const categoriesExist = () => {
     return categories && categories.edges && categories.edges.length > 0;
+  };
+
+  const bannersExist = () => {
+    return banners && banners.edges && banners.edges.length > 0;
   };
 
   const sliderSettings = {
     autoplay: true,
     dots: true,
     infinite: true,
-    speed: 500,
+    slidesToScroll: 1,
     slidesToShow: 1,
-    slidesToScroll: 1
+    speed: 500,
   };
 
   return (
@@ -160,6 +166,38 @@ const Page: React.FC<{
                       }}
                     />
                     <h3>{category.name}</h3>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      {bannersExist() && (
+        <div className="home-page__banners">
+          <div className="container">
+            <div className="home-page__banners__list">
+              {banners.edges.map(({ node: category }) => (
+                <div key={category.id}>
+                  <Link
+                    to={generateCategoryUrl(category.id, category.name)}
+                    key={category.id}
+                  >
+                    <div
+                      className={classNames(
+                        "home-page__banners__list__image",
+                        {
+                          "home-page__banners__list__image--no-photo": !category.backgroundImage,
+                        }
+                      )}
+                      style={{
+                        backgroundImage: `url(${
+                          category.backgroundImage
+                            ? category.backgroundImage.url
+                            : noPhotoImg
+                        })`,
+                      }}
+                    />
                   </Link>
                 </div>
               ))}

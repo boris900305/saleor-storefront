@@ -27,6 +27,17 @@ export const homePageQuery = gql`
         }
       }
     }
+    banners:categories(level:0, filter: {search: "banner"}, first:5){
+      edges{
+        node{
+          name
+          id
+          backgroundImage{
+            url
+          }
+        }
+      }
+    }
   }
 `;
 
