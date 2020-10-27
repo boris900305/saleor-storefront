@@ -392,8 +392,8 @@ button.slick-arrow.slick-prev {
   }
 
   &__search-input {
-    border: 1px solid grey;
-    border-radius: 3px;
+    border: none;
+    border-radius:0px;
     height: 38px;
     width: auto;
     padding: 2px 23px 2px 40px;
@@ -409,6 +409,15 @@ button.slick-arrow.slick-prev {
     border: 1px solid #009688;
     background-color: white;
   }
+
+  &__search-input::placeholder {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    font-family: nunito;
+    font-size: 1.1em;
+    color:$reyenvios;
+}
 }
 
 .sub-menu {

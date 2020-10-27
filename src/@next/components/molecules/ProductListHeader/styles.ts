@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Bar = styled.div`
-  height: 5rem;
+  height: 3rem;
   background-color: ${props => props.theme.tile.backgroundColor};
   display: flex;
   justify-content: space-between;
@@ -14,6 +14,7 @@ export const Bar = styled.div`
   font-size: ${props => props.theme.typography.smallFontSize};
   margin-top: 1rem;
   margin-bottom: 1.4rem;
+  font-family:nunito;
 `;
 
 export const LeftSide = styled.div`

@@ -1,35 +1,53 @@
 @import "../../../globalStyles/scss/variables.scss";
 
+.slider.carousel {
+  border-right:#eee 1px solid;
+}
+
 .product-list-item {
   text-align: center;
+  border: #eee 1px solid;
+  padding: 0.7em;
+  font-family: nunito;
+  border-right: none;
 
   &__title {
-    text-transform: $product-item-title-text-transform;
-    font-weight: $product-item-title-font-weight;
-    margin-top: $spacer;
+    margin-top: 1rem;
     text-align: left;
+    font-size: 1.05rem;
+    font-family: Nunito;
+    height: 40px;
+    color:$reyenviosblue;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   &__undiscounted_price {
     text-decoration: line-through;
     color: $gray;
     font-size: $small-font-size;
-    font-weight: regular;
+    margin-left: 10px;;
   }
 
   &__category {
-    color: $product-item-category-color;
+    color: #009619;
     text-align: left;
+    font-size: 0.8rem;
   }
 
   &__price {
-    font-weight: $product-item-price-font-weight;
-    margin: $product-item-price-margin;
+    font-weight: 600;
+    margin: 0.2rem 0 0;
     text-align: left;
+    color: $reyenvios;
+    font-size: 1.2rem;
   }
 
   &__image {
-    background-color: $turquoise-light;
+    /*background-color: $turquoise-light;*/
     display: flex;
     height: 350px;
     justify-content: center;
