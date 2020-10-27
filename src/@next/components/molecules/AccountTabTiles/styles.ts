@@ -85,6 +85,6 @@ export const FormButtons = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   button {
-    margin-left: 2rem;
+  margin-left: 2rem;
   }
 `;

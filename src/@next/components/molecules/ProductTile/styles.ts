@@ -2,20 +2,20 @@ import { media, styled } from "@styles";
 import { css } from "styled-components";
 
 const textProps = css`
-  font-size: ${props => props.theme.typography.baseFontSize};
   margin: 0 0 0.5rem 0;
   text-align: left;
 `;
 
 export const Wrapper = styled.div`
-  background: ${props => props.theme.colors.light};
-  padding: 2.5rem;
+  background:white;
+  padding: 0.5rem;
   text-align: center;
   max-height: 30rem;
   transition: 0.3s;
 
   :hover {
-    background-color: ${props => props.theme.colors.hoverLightBackground};
+    /*background-color: ${props => props.theme.colors.hoverLightBackground};*/
+    box-shadow: 0px 0px 5px #cacaca;
   }
 
   ${media.largeScreen`
@@ -24,8 +24,19 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h4`
-  text-transform: uppercase;
-  font-weight: normal;
+text-transform: none;
+font-weight: normal;
+margin-top: 1rem;
+text-align: left;
+font-size: 0.8rem;
+font-family: Nunito;
+height: 58px;
+color: #2f2c31;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 4;
+line-height: 0.95rem;
   ${textProps}
 `;
 
@@ -43,4 +54,10 @@ export const Image = styled.div`
     height: auto;
     max-width: 100%;
   }
+`;
+
+export const Price = styled.span`
+    display: flex;
+    font-family: 'Nunito';
+    color: #F31F00;
 `;

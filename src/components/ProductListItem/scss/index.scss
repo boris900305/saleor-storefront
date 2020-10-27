@@ -18,6 +18,11 @@
     font-family: Nunito;
     height: 40px;
     color:$reyenviosblue;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   &__undiscounted_price {
