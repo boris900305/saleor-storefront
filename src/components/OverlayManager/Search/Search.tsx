@@ -89,6 +89,9 @@ class Search extends React.Component<SearchProps, SearchState> {
           onClick={e => e.stopPropagation()}
           onSubmit={this.handleSubmit}
         >
+          <div className="search-header-text">
+          BUSCAR:
+          </div>
           <div className="search__input">
             <DebouncedTextField
               onChange={evt => this.setState({ search: evt.target.value })}
@@ -98,7 +101,7 @@ class Search extends React.Component<SearchProps, SearchState> {
               }
               iconRight={<ReactSVG path={searchImg} />}
               autoFocus={true}
-              placeholder="Buscar"
+              placeholder="Qué desea encontrar hoy?"
               onBlur={this.handleInputBlur}
             />
           </div>
@@ -138,7 +141,7 @@ class Search extends React.Component<SearchProps, SearchState> {
                                     btnRef={this.submitBtnRef}
                                     type="submit"
                                   >
-                                    Show all results
+                                    Mostrar todos los resultados
                                   </Button>
                                 )}
                               </div>

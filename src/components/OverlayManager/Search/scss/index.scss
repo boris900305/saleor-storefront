@@ -2,6 +2,14 @@
 
 $drawer-width: 25rem;
 
+.search__products__footer button.button {
+  /* background: red; */
+  padding: 0.5rem;
+  text-transform: none;
+  font-family: 'Nunito';
+  border-radius: 3px;
+}
+
 .search {
   width: 100vw;
 
@@ -16,7 +24,7 @@ $drawer-width: 25rem;
   &__input {
     .input__icon-right {
       svg * {
-        fill: $turquoise;
+        fill: #eaeaea;
       }
     }
 
@@ -27,31 +35,31 @@ $drawer-width: 25rem;
     }
 
     .input__field {
-      /*background-color: $reyenvios;*/
-      border: none;
-      box-shadow: none;
       padding-bottom: 1.2rem;
-      /*padding-top: 1.25rem;*/
       width: 100%;
-
       background-color: white;
       padding-top: 1.4rem;
-      margin-top: 70px;
+      margin-top: 1rem;
       height: 50px;
       font-family: nunito;
-      border: #232f3e 0.13rem solid;
+      border: #e4e4e4 0.1rem solid;
       margin-right: 10px;
-      border-right: none;
-      border-radius: 5px 0 0 5px;
+      border-radius: 4px;
+      box-shadow: 0 0 5px #efefef inset;
+      font-size: 1.5rem;
+      font-weight: normal;
+      color: #616161;
 
       &:focus {
         box-shadow: none;
       }
 
       &::placeholder {
-        text-transform: uppercase;
+        text-transform: none;
         font-size: $base-font-size;
-        color: $reyenvios;
+        color:grey;
+        margin-top: -5px;
+        line-height: 50px;
       }
     }
   }
@@ -78,7 +86,7 @@ $drawer-width: 25rem;
     }
 
     &__item {
-      padding: $spacer / 2 $spacer;
+      padding: $spacer / 0;
 
       img {
         width: 3.6rem;

@@ -27,16 +27,17 @@ export const Title = styled.h4`
 text-transform: none;
 font-weight: normal;
 margin-top: 1rem;
-text-align: left;
-font-size: 0.8rem;
+font-size: 0.85rem;
 font-family: Nunito;
 height: 58px;
-color: #2f2c31;
+color: #232f3e;
 overflow: hidden;
 text-overflow: ellipsis;
 display: -webkit-box;
 -webkit-line-clamp: 4;
 line-height: 0.95rem;
+letter-spacing:-0.1px;
+-webkit-box-orient: vertical;
   ${textProps}
 `;
 

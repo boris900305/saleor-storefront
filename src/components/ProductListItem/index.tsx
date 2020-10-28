@@ -69,6 +69,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
   };
   return (
     <div className="product-list-item">
+      <div className="home-discounted-label">Rebaja</div>
       <div className="product-list-item__image">
         <Thumbnail source={product} />
       </div>

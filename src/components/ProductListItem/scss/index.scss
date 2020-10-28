@@ -2,41 +2,62 @@
 
 .slider.carousel {
   border-right:#eee 1px solid;
+  height: 277px !important;
 }
 
+.home-discounted-label {
+  background: #e80000;
+  float: left;
+  position: absolute;
+  font-size: 0.7rem;
+  padding: 0px 5px;
+  color: white;
+  margin: -8px;
+  font-family: 'Nunito';
+  font-weight: bold;
+  border-radius: 3px;
+}
 .product-list-item {
   text-align: center;
   border: #eee 1px solid;
   padding: 0.7em;
   font-family: nunito;
   border-right: none;
+  position: relative;
 
   &__title {
     margin-top: 1rem;
     text-align: left;
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     font-family: Nunito;
-    height: 40px;
-    color:$reyenviosblue;
+    height: 29px;
+    color: #232f3e;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    letter-spacing: -0.1px;
+    line-height: 0.95rem;
   }
 
   &__undiscounted_price {
     text-decoration: line-through;
-    color: $gray;
+    color: #7d7d7d;
     font-size: $small-font-size;
     margin-left: 10px;;
   }
 
   &__category {
-    color: #009619;
+    color: #007b4e;
     text-align: left;
     font-size: 0.8rem;
   }
+
+  &:hover {
+    /* background: red; */
+    box-shadow: 0px 0px 5px #cacaca;
+}
 
   &__price {
     font-weight: 600;
@@ -44,12 +65,13 @@
     text-align: left;
     color: $reyenvios;
     font-size: 1.2rem;
+    height: 21px;
   }
 
   &__image {
     /*background-color: $turquoise-light;*/
     display: flex;
-    height: 350px;
+    height: 160px;
     justify-content: center;
 
     img {

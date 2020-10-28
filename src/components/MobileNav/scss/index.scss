@@ -3,23 +3,24 @@
 .side-nav {
   $item-height: 3.7rem;
   max-width: calc(100vw - 5rem);
-  width: 30rem;
+  width: 20rem;
 
   &__menu-item {
     border-bottom: 1px solid $gray-light;
     display: grid;
-    height: $item-height;
+    /*height: $item-height;*/
 
     &-link,
     &-back span {
       align-items: center;
-      color: $base-font-color;
+      color: #323232;
       display: flex;
-      font-weight: 600;
-      padding: $spacer;
+      /* font-weight: 600; */
+      padding: 0.3rem 1rem 0.3rem 2rem;
       text-decoration: none;
-      text-transform: uppercase;
+      /* text-transform: uppercase; */
       transition: 0.3s;
+      font-family: 'Nunito';
 
       svg * {
         fill: currentColor;
@@ -28,10 +29,10 @@
 
     &-logo {
       align-self: center;
-      padding: 0.75rem $spacer;
+      padding: 0.5rem 1rem 0.5rem 2rem;
 
       svg {
-        width: 5rem;
+        width: 7rem;
       }
     }
 
@@ -42,7 +43,7 @@
       transition: 0.3s;
 
       &:hover {
-        color: $turquoise;
+        color: $reyenvios;
       }
 
       svg * {
@@ -60,7 +61,7 @@
 
     &-more {
       align-self: center;
-      padding: 1.25rem 1.75rem;
+      padding: 0.3rem 0 0.3rem 2.5rem;
     }
 
     &-back {
@@ -83,7 +84,7 @@
       }
 
       &:hover {
-        color: $turquoise;
+        color: $reyenvios;
       }
     }
 
@@ -93,7 +94,9 @@
     }
 
     &--parent {
-      color: $gray;
+      color: black;
+      background: #fbfbfb;
+      margin-bottom: 0.8rem;
 
       a {
         color: inherit;
