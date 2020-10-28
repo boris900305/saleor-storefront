@@ -35,6 +35,10 @@ export const homePageQuery = gql`
           backgroundImage{
             url
           }
+          metadata{
+            key
+            value
+          }
         }
       }
     }

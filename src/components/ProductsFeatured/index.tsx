@@ -7,6 +7,12 @@ import { TypedFeaturedProductsQuery } from "./queries";
 
 import "./scss/index.scss";
 
+import Media from "react-media";
+
+import {
+  mediumScreen,
+} from "../../globalStyles/scss/variables.scss";
+
 interface ProductsFeaturedProps {
   title?: string;
 }
@@ -25,7 +31,10 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
             <div className="products-featured">
               <div className="container">
                 <h3>{title}</h3>
-                <Carousel>
+                <Media
+                  query={{ maxWidth: mediumScreen }}
+                  render={() => 
+                    <Carousel>
                   {products.map(({ node: product }) => (
                     <Link
                       to={generateProductUrl(product.id, product.name)}
@@ -35,6 +44,21 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
                     </Link>
                   ))}
                 </Carousel>
+                  } />
+              <Media
+                  query={{ minWidth: mediumScreen }}
+                  render={() => 
+                    <Carousel slidesToShow={6}>
+                  {products.map(({ node: product }) => (
+                    <Link
+                      to={generateProductUrl(product.id, product.name)}
+                      key={product.id}
+                    >
+                      <ProductListItem product={product} />
+                    </Link>
+                  ))}
+                </Carousel>
+                  } />
               </div>
             </div>
           );

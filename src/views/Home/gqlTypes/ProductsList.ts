@@ -79,6 +79,18 @@ export interface ProductsList_banners_edges_node_backgroundImage {
   url: string;
 }
 
+export interface ProductsList_banners_edges_node_metadata {
+  __typename: "MetadataItem";
+  /**
+   * Key of a metadata item.
+   */
+  key: string;
+  /**
+   * Value of a metadata item.
+   */
+  value: string;
+}
+
 export interface ProductsList_banners_edges_node {
   __typename: "Category";
   name: string;
@@ -87,6 +99,10 @@ export interface ProductsList_banners_edges_node {
    */
   id: string;
   backgroundImage: ProductsList_banners_edges_node_backgroundImage | null;
+  /**
+   * List of public metadata items. Can be accessed without permissions.
+   */
+  metadata: (ProductsList_banners_edges_node_metadata | null)[];
 }
 
 export interface ProductsList_banners_edges {
