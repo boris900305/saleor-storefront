@@ -88,6 +88,9 @@
       }
     }
 
+    &--not-show{
+      display: none;
+    }
     &--has-subnavigation,
     &--parent {
       grid-template-columns: 1fr $item-height;

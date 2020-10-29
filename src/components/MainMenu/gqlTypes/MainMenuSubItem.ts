@@ -6,6 +6,14 @@
 // GraphQL fragment: MainMenuSubItem
 // ====================================================
 
+export interface MainMenuSubItem_category_products {
+  __typename: "ProductCountableConnection";
+  /**
+   * A total count of items in the collection.
+   */
+  totalCount: number | null;
+}
+
 export interface MainMenuSubItem_category {
   __typename: "Category";
   /**
@@ -13,6 +21,10 @@ export interface MainMenuSubItem_category {
    */
   id: string;
   name: string;
+  /**
+   * List of products in the category.
+   */
+  products: MainMenuSubItem_category_products | null;
 }
 
 export interface MainMenuSubItem_collection {

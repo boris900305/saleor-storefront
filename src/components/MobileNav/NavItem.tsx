@@ -22,12 +22,16 @@ const NavItem: React.FC<NavItemProps> = ({
   ...item
 }) => {
   const hasSubNavigation = item.children && !!item.children.length;
+  const hasProducts = item.category && item.category.products && item.category.products.totalCount !== 0;
+
 
   return (
+    
     <li
       className={classNames({
         "side-nav__menu-item": true,
         "side-nav__menu-item--has-subnavigation": hasSubNavigation,
+        "side-nav__menu-item--not-show": !hasProducts,
       })}
     >
       <NavLink
