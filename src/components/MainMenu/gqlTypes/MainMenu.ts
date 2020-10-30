@@ -6,6 +6,14 @@
 // GraphQL query operation: MainMenu
 // ====================================================
 
+export interface MainMenu_shop_navigation_main_items_category_products {
+  __typename: "ProductCountableConnection";
+  /**
+   * A total count of items in the collection.
+   */
+  totalCount: number | null;
+}
+
 export interface MainMenu_shop_navigation_main_items_category {
   __typename: "Category";
   /**
@@ -13,6 +21,10 @@ export interface MainMenu_shop_navigation_main_items_category {
    */
   id: string;
   name: string;
+  /**
+   * List of products in the category.
+   */
+  products: MainMenu_shop_navigation_main_items_category_products | null;
 }
 
 export interface MainMenu_shop_navigation_main_items_collection {
@@ -37,6 +49,14 @@ export interface MainMenu_shop_navigation_main_items_parent {
   id: string;
 }
 
+export interface MainMenu_shop_navigation_main_items_children_category_products {
+  __typename: "ProductCountableConnection";
+  /**
+   * A total count of items in the collection.
+   */
+  totalCount: number | null;
+}
+
 export interface MainMenu_shop_navigation_main_items_children_category {
   __typename: "Category";
   /**
@@ -44,6 +64,10 @@ export interface MainMenu_shop_navigation_main_items_children_category {
    */
   id: string;
   name: string;
+  /**
+   * List of products in the category.
+   */
+  products: MainMenu_shop_navigation_main_items_children_category_products | null;
 }
 
 export interface MainMenu_shop_navigation_main_items_children_collection {
@@ -68,6 +92,14 @@ export interface MainMenu_shop_navigation_main_items_children_parent {
   id: string;
 }
 
+export interface MainMenu_shop_navigation_main_items_children_children_category_products {
+  __typename: "ProductCountableConnection";
+  /**
+   * A total count of items in the collection.
+   */
+  totalCount: number | null;
+}
+
 export interface MainMenu_shop_navigation_main_items_children_children_category {
   __typename: "Category";
   /**
@@ -75,6 +107,10 @@ export interface MainMenu_shop_navigation_main_items_children_children_category 
    */
   id: string;
   name: string;
+  /**
+   * List of products in the category.
+   */
+  products: MainMenu_shop_navigation_main_items_children_children_category_products | null;
 }
 
 export interface MainMenu_shop_navigation_main_items_children_children_collection {
