@@ -36,9 +36,14 @@
   &--search {
     .overlay__right {
       /*background-color: transparent;*/
+      background-color: white;
       height: auto;
       padding-left: 1rem;
-      padding-right:  1rem;
+      padding-right: 1rem;
+      background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTajk0wbxefAdGR5CPVHd1qHEbU8ZQ19ndVig&usqp=CAU);
+      background-color: white;
+      background-repeat: no-repeat;
+      background-position: center;
     }
   }
 
