@@ -37,11 +37,15 @@ export const productPricingFragment = gql`
   ${priceFragment}
   fragment ProductPricingField on Product {
     pricing {
+      discount{
+        ...Price
+      }
       onSale
       priceRangeUndiscounted {
         start {
           ...Price
         }
+
         stop {
           ...Price
         }
@@ -53,7 +57,7 @@ export const productPricingFragment = gql`
         stop {
           ...Price
         }
-      }
+      }     
     }
   }
 `;
