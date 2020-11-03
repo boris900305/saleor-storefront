@@ -28,6 +28,42 @@ export interface Category_products_edges_node_thumbnail2x {
   url: string;
 }
 
+export interface Category_products_edges_node_pricing_discount_gross {
+  __typename: "Money";
+  /**
+   * Amount of money.
+   */
+  amount: number;
+  /**
+   * Currency code.
+   */
+  currency: string;
+}
+
+export interface Category_products_edges_node_pricing_discount_net {
+  __typename: "Money";
+  /**
+   * Amount of money.
+   */
+  amount: number;
+  /**
+   * Currency code.
+   */
+  currency: string;
+}
+
+export interface Category_products_edges_node_pricing_discount {
+  __typename: "TaxedMoney";
+  /**
+   * Amount of money including taxes.
+   */
+  gross: Category_products_edges_node_pricing_discount_gross;
+  /**
+   * Amount of money without taxes.
+   */
+  net: Category_products_edges_node_pricing_discount_net;
+}
+
 export interface Category_products_edges_node_pricing_priceRangeUndiscounted_start_gross {
   __typename: "Money";
   /**
@@ -198,6 +234,10 @@ export interface Category_products_edges_node_pricing_priceRange {
 
 export interface Category_products_edges_node_pricing {
   __typename: "ProductPricingInfo";
+  /**
+   * The discount amount if in sale (null otherwise).
+   */
+  discount: Category_products_edges_node_pricing_discount | null;
   /**
    * Whether it is in sale or not.
    */

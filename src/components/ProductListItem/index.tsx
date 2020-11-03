@@ -14,6 +14,16 @@ export interface Product extends BasicProductFields {
     name: string;
   };
   pricing: {
+    discount: {
+      gross: {
+        amount: number;
+        currency: string;
+      };
+      net: {
+        amount: number;
+        currency: string;
+      };
+    };
     priceRange: {
       start: {
         gross: {
@@ -49,6 +59,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
   const { category } = product;
   const price = product.pricing.priceRange.start;
   const priceUndiscounted = product.pricing.priceRangeUndiscounted.start;
+  const discount = product.pricing.discount;
 
   const getProductPrice = () => {
     if (isEqual(price, priceUndiscounted)) {
@@ -67,9 +78,15 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
       );
     }
   };
+  const showDiscountedLabel = () => {
+    if (!isEqual(price, priceUndiscounted)) {
+      const discountPercentage = Math.ceil(discount.net.amount/priceUndiscounted.net.amount * 100) ;
+      return <div className="home-discounted-label">Rebaja {discountPercentage}%</div>;
+    } 
+  };
   return (
     <div className="product-list-item">
-      <div className="home-discounted-label">Rebaja</div>
+      {showDiscountedLabel()}
       <div className="product-list-item__image">
         <Thumbnail source={product} />
       </div>
