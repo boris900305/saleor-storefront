@@ -16,6 +16,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
 
   return (
     <S.Wrapper data-cy="product-tile">
+      <div className="home-discounted-label category">Rebaja</div>
       <S.Image>
         <Thumbnail source={product} />
       </S.Image>

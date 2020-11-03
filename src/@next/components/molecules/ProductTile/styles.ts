@@ -54,6 +54,7 @@ export const Image = styled.div`
     width: auto;
     height: auto;
     max-width: 100%;
+    max-height: 155px;
   }
 `;
 
@@ -62,3 +63,4 @@ export const Price = styled.span`
     font-family: 'Nunito';
     color: #F31F00;
 `;
+
