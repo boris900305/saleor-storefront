@@ -50,6 +50,10 @@ $drawer-width: 25rem;
       font-weight: normal;
       color: #616161;
 
+      @media (max-width: $small-screen) {
+        width: 88%;
+      }
+
       &:focus {
         box-shadow: none;
       }
@@ -61,6 +65,9 @@ $drawer-width: 25rem;
         margin-top: -5px;
         line-height: 50px;
       }
+
+
+
     }
   }
 

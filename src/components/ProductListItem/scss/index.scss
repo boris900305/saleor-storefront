@@ -2,8 +2,13 @@
 
 .slider.carousel {
   border-right:#eee 1px solid;
-  height: 280px !important;
-  /*border-bottom: #eee 1px solid;*/
+  height: 280px;
+}
+
+@media (max-width: $small-screen) {
+  .slider.carousel {
+    border-right:none;
+  }
 }
 
 .home-discounted-label {
@@ -30,6 +35,11 @@
   border-right: none;
   position: relative;
 
+  @media (max-width: $small-screen) {
+    border-right:#eee 1px solid;
+    margin-left: 1px;
+  }
+  
   &__title {
     margin-top: 1rem;
     text-align: left;
