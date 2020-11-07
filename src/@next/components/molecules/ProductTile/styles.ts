@@ -58,7 +58,7 @@ export const Image = styled.div`
   }
 `;
 
-export const Price = styled.span`
+export const PriceLabel = styled.span`
     display: flex;
     font-family: 'Nunito';
     color: #F31F00;
