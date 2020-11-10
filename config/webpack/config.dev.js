@@ -5,6 +5,9 @@ module.exports = ({ sourceDir, distDir }) => ({
   output: {
     filename: "js/[name].js"
   },
+  devServer: {
+    https: false
+  },
   module: {
     rules: [
       {

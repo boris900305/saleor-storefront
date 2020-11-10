@@ -138,7 +138,7 @@ const Page: React.FC<{
           </div>
         </Slider>
       </div>
-      <ProductsFeatured />
+      <ProductsFeatured title="Productos recomendados"/>
       {categoriesExist() && (
         <div className="home-page__categories">
           <div className="container">
