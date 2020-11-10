@@ -4,7 +4,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { ProductsFeatured } from "../../components";
+import { NewFeaturedProducts, ProductsFeatured } from "../../components";
 import { generateCategoryUrl } from "../../core/utils";
 
 import {
@@ -139,6 +139,7 @@ const Page: React.FC<{
         </Slider>
       </div>
       <ProductsFeatured title="Productos recomendados"/>
+      <NewFeaturedProducts/>
       {categoriesExist() && (
         <div className="home-page__categories">
           <div className="container">
