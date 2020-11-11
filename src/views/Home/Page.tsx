@@ -44,7 +44,7 @@ const Page: React.FC<{
   };
 
   const bannersLink = (banner: ProductsList_banners_edges_node) => {
-    if(banner.metadata.length > 0 && banner.metadata[0].value != "")
+    if(banner.metadata.length > 0 && banner.metadata[0].value !== "")
     {
       return banner.metadata[0].value;
     }
