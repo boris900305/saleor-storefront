@@ -9,9 +9,6 @@ import {
 export const productPricingFragment = gql`
   fragment ProductPricingField on Product {
     pricing {
-      discount{
-        ...Price
-      }
       onSale
       priceRangeUndiscounted {
         start {
