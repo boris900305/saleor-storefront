@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { CountryCode } from "./../../gqlTypes/globalTypes";
+import { CountryCode } from "./../../../../gqlTypes/globalTypes";
 
 // ====================================================
 // GraphQL query operation: ProductDetails
@@ -26,6 +26,42 @@ export interface ProductDetails_product_thumbnail2x {
    * The URL of the image.
    */
   url: string;
+}
+
+export interface ProductDetails_product_pricing_discount_gross {
+  __typename: "Money";
+  /**
+   * Amount of money.
+   */
+  amount: number;
+  /**
+   * Currency code.
+   */
+  currency: string;
+}
+
+export interface ProductDetails_product_pricing_discount_net {
+  __typename: "Money";
+  /**
+   * Amount of money.
+   */
+  amount: number;
+  /**
+   * Currency code.
+   */
+  currency: string;
+}
+
+export interface ProductDetails_product_pricing_discount {
+  __typename: "TaxedMoney";
+  /**
+   * Amount of money including taxes.
+   */
+  gross: ProductDetails_product_pricing_discount_gross;
+  /**
+   * Amount of money without taxes.
+   */
+  net: ProductDetails_product_pricing_discount_net;
 }
 
 export interface ProductDetails_product_pricing_priceRangeUndiscounted_start_gross {
@@ -199,6 +235,10 @@ export interface ProductDetails_product_pricing_priceRange {
 export interface ProductDetails_product_pricing {
   __typename: "ProductPricingInfo";
   /**
+   * The discount amount if in sale (null otherwise).
+   */
+  discount: ProductDetails_product_pricing_discount | null;
+  /**
    * Whether it is in sale or not.
    */
   onSale: boolean | null;
@@ -230,6 +270,42 @@ export interface ProductDetails_product_category_products_edges_node_thumbnail2x
    * The URL of the image.
    */
   url: string;
+}
+
+export interface ProductDetails_product_category_products_edges_node_pricing_discount_gross {
+  __typename: "Money";
+  /**
+   * Amount of money.
+   */
+  amount: number;
+  /**
+   * Currency code.
+   */
+  currency: string;
+}
+
+export interface ProductDetails_product_category_products_edges_node_pricing_discount_net {
+  __typename: "Money";
+  /**
+   * Amount of money.
+   */
+  amount: number;
+  /**
+   * Currency code.
+   */
+  currency: string;
+}
+
+export interface ProductDetails_product_category_products_edges_node_pricing_discount {
+  __typename: "TaxedMoney";
+  /**
+   * Amount of money including taxes.
+   */
+  gross: ProductDetails_product_category_products_edges_node_pricing_discount_gross;
+  /**
+   * Amount of money without taxes.
+   */
+  net: ProductDetails_product_category_products_edges_node_pricing_discount_net;
 }
 
 export interface ProductDetails_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross {
@@ -403,6 +479,10 @@ export interface ProductDetails_product_category_products_edges_node_pricing_pri
 export interface ProductDetails_product_category_products_edges_node_pricing {
   __typename: "ProductPricingInfo";
   /**
+   * The discount amount if in sale (null otherwise).
+   */
+  discount: ProductDetails_product_category_products_edges_node_pricing_discount | null;
+  /**
    * Whether it is in sale or not.
    */
   onSale: boolean | null;
@@ -519,6 +599,19 @@ export interface ProductDetails_product_attributes {
    * Values of an attribute.
    */
   values: (ProductDetails_product_attributes_values | null)[];
+}
+
+export interface ProductDetails_product_variants_images {
+  __typename: "ProductImage";
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  /**
+   * The URL of the image.
+   */
+  url: string;
+  alt: string;
 }
 
 export interface ProductDetails_product_variants_pricing_priceUndiscounted_gross {
@@ -658,13 +751,17 @@ export interface ProductDetails_product_variants {
   sku: string;
   name: string;
   /**
+   * Whether the variant is in stock and visible or not.
+   */
+  isAvailable: boolean | null;
+  /**
    * Quantity of a product available for sale in one checkout.
    */
   quantityAvailable: number;
   /**
-   * Whether the variant is in stock and visible or not.
+   * List of images for the product variant.
    */
-  isAvailable: boolean | null;
+  images: (ProductDetails_product_variants_images | null)[] | null;
   /**
    * Lists the storefront variant's pricing, the current price and discounts, only meant for displaying.
    */

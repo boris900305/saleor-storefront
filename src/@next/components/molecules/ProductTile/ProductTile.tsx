@@ -1,10 +1,11 @@
 import React from "react";
-
+import { IProps } from "./types";
+import { isEqual } from "lodash";
 import { TaxedMoney } from "@components/containers";
 import { Thumbnail } from "@components/molecules";
 
 import * as S from "./styles";
-import { IProps } from "./types";
+
 
 export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
   const price =
@@ -14,9 +15,16 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
       ? product.pricing.priceRange.start
       : undefined;
 
+      const showDiscountedLabel = () => {
+        if (!isEqual(product.pricing?.priceRange?.start, product.pricing?.priceRangeUndiscounted?.start)) {
+          //const discountPercentage = Math.ceil(product.pricing?.discount?.net?.amount/product.pricing?.priceRangeUndiscounted?.start?.net?.amount * 100) ;
+          return <div className="home-discounted-label">Rebaja</div>;
+        } 
+      };
+
   return (
     <S.Wrapper data-cy="product-tile">
-      <div className="home-discounted-label category">Rebaja</div>
+      {showDiscountedLabel()}
       <S.Image>
         <Thumbnail source={product} />
       </S.Image>

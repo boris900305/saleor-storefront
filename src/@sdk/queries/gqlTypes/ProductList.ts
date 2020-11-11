@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { AttributeInput, ProductOrder } from "./../../gqlTypes/globalTypes";
+import { AttributeInput, ProductOrder } from "./../../../../gqlTypes/globalTypes";
 
 // ====================================================
 // GraphQL query operation: ProductList
@@ -26,6 +26,42 @@ export interface ProductList_products_edges_node_thumbnail2x {
    * The URL of the image.
    */
   url: string;
+}
+
+export interface ProductList_products_edges_node_pricing_discount_gross {
+  __typename: "Money";
+  /**
+   * Amount of money.
+   */
+  amount: number;
+  /**
+   * Currency code.
+   */
+  currency: string;
+}
+
+export interface ProductList_products_edges_node_pricing_discount_net {
+  __typename: "Money";
+  /**
+   * Amount of money.
+   */
+  amount: number;
+  /**
+   * Currency code.
+   */
+  currency: string;
+}
+
+export interface ProductList_products_edges_node_pricing_discount {
+  __typename: "TaxedMoney";
+  /**
+   * Amount of money including taxes.
+   */
+  gross: ProductList_products_edges_node_pricing_discount_gross;
+  /**
+   * Amount of money without taxes.
+   */
+  net: ProductList_products_edges_node_pricing_discount_net;
 }
 
 export interface ProductList_products_edges_node_pricing_priceRangeUndiscounted_start_gross {
@@ -198,6 +234,10 @@ export interface ProductList_products_edges_node_pricing_priceRange {
 
 export interface ProductList_products_edges_node_pricing {
   __typename: "ProductPricingInfo";
+  /**
+   * The discount amount if in sale (null otherwise).
+   */
+  discount: ProductList_products_edges_node_pricing_discount | null;
   /**
    * Whether it is in sale or not.
    */

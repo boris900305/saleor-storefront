@@ -3,7 +3,7 @@ module.exports = {
     excludes: ["**/__tests__/**/*", "**/@sdk/**/*"],
     service: {
       name: "saleor",
-      url: "http://93.115.18.125:8000/graphql/",
+      url: "http://backend.lowbytes.com/graphql/",
     },
   },
 };
