@@ -9,6 +9,7 @@ import { generateCategoryUrl } from "../../core/utils";
 
 import {
   ProductsList_banners,
+  ProductsList_banners_edges_node,
   ProductsList_categories,
   ProductsList_shop,
   ProductsList_shop_homepageCollection_backgroundImage,
@@ -40,6 +41,18 @@ const Page: React.FC<{
 
   const bannersExist = () => {
     return banners && banners.edges && banners.edges.length > 0;
+  };
+
+  const bannersLink = (banner: ProductsList_banners_edges_node) => {
+    if(banner.metadata.length > 0 && banner.metadata[0].value != "")
+    {
+      return banner.metadata[0].value;
+    }
+    else
+    {
+      return "";
+    }
+    
   };
 
   const sliderSettings = {
@@ -180,10 +193,7 @@ const Page: React.FC<{
             <div className="home-page__banners__list">
               {banners.edges.map(({ node: category }) => (
                 <div key={category.id}>
-                  <Link
-                    to={generateCategoryUrl(category.id, category.name)}
-                    key={category.id}
-                  >
+                  <a href={bannersLink(category)}>
                     <div
                       className={classNames(
                         "home-page__banners__list__image",
@@ -199,7 +209,7 @@ const Page: React.FC<{
                         })`,
                       }}
                     />
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>
